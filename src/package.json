@@ -1,0 +1,24 @@
+{
+  "name": "bluecore-template-node-ejs",
+  "version": "1.0.0",
+  "description": "Bluecore Template: Node + EJS",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "Bluecore",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "express-validator": "^6.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.24.0",
+    "mssql": "^5.1.0",
+    "multer": "^1.4.1"
+  }
+}
