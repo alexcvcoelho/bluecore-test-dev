@@ -1,59 +1,43 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<section>
+  <h1>Bluecore Template: Node + EJS</h1>
 
-<head>
-    <base href="<%- rootUrl%>">
+  <p>Template de projeto monolito, com arquitetura simples, utilizando:</p>
 
-    <title>Bluecore Template: Node + EJS</title>
-</head>
+  <ul>
+    <li>Node</li>
+    <li>ExpressJS</li>
+    <li>EJS</li>
+    <li>SQL Server</li>
+  </ul>
+</section>
 
-<body>
-    <section>
-        <h1>Bluecore Template: Node + EJS</h1>
+<section id="app">
+  <h2>Usuários</h2>
+  <ul>
+    <li v-for="user in users">{{ user.name }}</li>
+  </ul>
+</section>
 
-        <p>Template de projeto monolito, com arquitetura simples, utilizando:</p>
-        <br>
-        <ul>
-            <li>Node</li>
-            <li>ExpressJS</li>
-            <li>EJS</li>
-            <li>SQL Server</li>
-        </ul>
-    </section>
+<script>
+  var http = axios.create({
+    baseURL: "<%- apiUrl%>",
+    timeout: 10000,
+  });
 
-    <section id="app">
-        <h2>Usuários</h2>
-        <ul>
-            <li v-for="user in users">{{ user.name }}</li>
-        </ul>
-    </section>
-
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script>
-        var http = axios.create({
-            baseURL: '<%- apiUrl%>',
-            timeout: 10000,
+  var app = new Vue({
+    el: "#app",
+    data: {
+      users: [],
+    },
+    methods: {
+      loadUsers() {
+        http.get("/users").then((response) => {
+          this.users = response.data;
         });
-
-        var app = new Vue({
-            el: '#app',
-            data: {
-                users: []
-            },
-            methods: {
-                loadUsers(){
-                    http.get('/users').then(response => {
-                        this.users = response.data
-                    })
-                }
-            },
-            mounted(){
-                this.loadUsers()
-            }
-        })
-    </script>
-
-</body>
-
-</html>
+      },
+    },
+    mounted() {
+      this.loadUsers();
+    },
+  });
+</script>

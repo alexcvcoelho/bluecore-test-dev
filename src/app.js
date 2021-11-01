@@ -1,15 +1,19 @@
 const express = require('express');
+const expressLayouts = require("express-ejs-layouts");
 const path = require('path');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 
+require('dotenv').config();
+
 const app = express();
 
 app.use(cors())
+app.use(expressLayouts);
 
-// view engine setup
+app.set("layout", "./layouts/default");
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'html');
+app.set('view engine', 'ejs');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -17,10 +21,8 @@ console.log(__dirname)
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
 
-//routes
 app.use(require('./routes'));
 
-// error handler
 app.use(function(err, req, res, next) {
   res.locals.message = err.message;
   
