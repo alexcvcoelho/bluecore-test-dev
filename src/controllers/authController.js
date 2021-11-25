@@ -1,9 +1,12 @@
-const AuthService = require('../service/authService'); 
+const AuthService = require("../service/authService");
 
 module.exports = class AuthController {
-    static login(req, res, next){
-        const token = AuthService.login(req.body.username, req.body.password);
+  static login(request, response, next) {
+    const token = AuthService.login(
+      request.body.username,
+      request.body.password
+    );
 
-        res.status(200).send(token);
-    }
-}
+    response.status(200).send(token);
+  }
+};

@@ -1,13 +1,13 @@
- const stream = require('stream');
+const stream = require("stream");
 
-module.exports = (file, res, fileName) => {
-    const content  = Buffer.from(file, "base64");
-    const readStream = new stream.PassThrough();
+module.exports = (file, response, fileName) => {
+  const content = Buffer.from(file, "base64");
+  const readStream = new stream.PassThrough();
 
-    readStream.end(content);
+  readStream.end(content);
 
-    res.set('Content-disposition', 'attachment; filename=' + fileName);
-    res.set('Content-Type', 'application/vnd.ms-excel');
+  response.set("Content-disposition", "attachment; filename=" + fileName);
+  response.set("Content-Type", "application/vnd.ms-excel");
 
-    readStream.pipe(res);
-}
+  readStream.pipe(response);
+};

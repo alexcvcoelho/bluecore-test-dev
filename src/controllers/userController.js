@@ -1,9 +1,9 @@
-const UserService = require('../service/userService');
+const UserService = require("../service/userService");
 
 module.exports = class UserController {
-    static list(req, res, next){
-        UserService.list(req.params.brandId)
-            .then(unities => res.status(200).send(unities))
-            .catch(next);
-    }
-}
+  static list(request, response, next) {
+    UserService.list(request.params.brandId)
+      .then((unities) => response.status(200).send(unities))
+      .catch(next);
+  }
+};
