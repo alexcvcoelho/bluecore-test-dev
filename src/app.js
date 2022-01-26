@@ -1,12 +1,14 @@
-const express = require("express");
-const expressLayouts = require("express-ejs-layouts");
-const path = require("path");
-const cors = require("cors");
-const cookieParser = require("cookie-parser");
+import express from "express";
+import expressLayouts from "express-ejs-layouts";
+import path from "path";
+import cors from "cors";
+import cookieParser from "cookie-parser";
+import dotenv from "dotenv";
+
+dotenv.config();
+
 const logger = require("./util/logger");
 const morgan = require("./middlewares/morgan");
-
-require("dotenv").config();
 
 const app = express();
 
@@ -37,14 +39,6 @@ app.use(function (error, _, response, next) {
     message: error.message,
     stack: error.stack,
   });
-});
-
-server = require("http").createServer(app);
-
-const port = process.env.PORT || "3000";
-
-server.listen(port, () => {
-  console.log(`Ouvindo porta ${port}`);
 });
 
 module.exports = app;
