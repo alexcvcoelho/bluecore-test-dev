@@ -5,6 +5,25 @@ Template de projeto monolito, com arquitetura simples, utilizando:
   - EJS
   - SQL Server
 
+### Libs
+  - Dotenv
+  - JWT
+  - *Database*
+    - MSSQL
+  - *Framework*
+    - Express
+      - Express EJS Layouts
+      - Express Validator
+    - EJS (html engine template)
+    - Body Parser
+    - Multer
+    - Cookie Parser
+    - Cors
+  - *Logs*
+    - Morgan
+    - Winston
+      - Winston Rotate File
+
 ### Instalação
 Para realizar a instalação da aplicação:
  - Navegar até o diretório **src**

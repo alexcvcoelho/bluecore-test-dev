@@ -1,18 +1,17 @@
-const Context = require("./context");
-const sql = require("mssql");
+const Context = require('./context')
 
 module.exports = class UserDb {
-  static async listMock() {
+  static async listMock () {
     const users = [
-      { id: 1, name: "Scuby" },
-      { id: 2, name: "Scuzzy" },
-    ];
+      { id: 1, name: 'Scuby' },
+      { id: 2, name: 'Scuzzy' }
+    ]
 
-    return users;
+    return users
   }
 
-  static async list() {
-    const request = await Context.getRequest();
+  static async list () {
+    const request = await Context.getRequest()
 
     const query = `
             Select
@@ -20,11 +19,11 @@ module.exports = class UserDb {
                 Name as 'name'
             From
                 [User]
-        `;
+        `
 
-    const result = await request.query(query);
-    const users = result.recordset;
+    const result = await request.query(query)
+    const users = result.recordset
 
-    return users;
+    return users
   }
-};
+}

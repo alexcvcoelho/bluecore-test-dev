@@ -1,7 +1,7 @@
-const UserDb = require("../db/userDb");
+const UserDb = require('../db/userDb')
 
 module.exports = class UserService {
-  static async list() {
-    return await UserDb.listMock();
+  static async list () {
+    return await UserDb.listMock()
   }
-};
+}
