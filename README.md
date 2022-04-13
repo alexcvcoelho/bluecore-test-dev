@@ -26,10 +26,17 @@ Template de projeto monolito, com arquitetura simples, utilizando:
 
 ### Instalação
 Para realizar a instalação da aplicação:
- - Navegar até o diretório **src**
  - Executar o romando `npm install`
-### Execução
-Para realizar a execução da aplicação:
- - Navegar até o diretório **src**
- - Executar o comando `npm start`
+### Executar em desenvolvimento
+Para realizar a execução da aplicação em desenvolvimento:
+ - Executar o romando `npm run dev`
  - A aplicação rodará na porta **3000**
+### Execução em produção
+Para realizar a execução da aplicação em produção:
+ - Executar o comando `npm start`
+### Lint Check
+Para realizar a verificação do ESLINT:
+ - Executar o romando `npm run lint`
+### Lint Fix
+Para forçar o ajuste do ESLINT:
+ - Executar o romando `npm run lint:fix`
