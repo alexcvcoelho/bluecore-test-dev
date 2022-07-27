@@ -22,8 +22,9 @@
     "express-ejs-layouts": "^2.5.1",
     "express-validator": "^6.1.1",
     "jsonwebtoken": "^8.5.1",
+    "knex": "^2.2.0",
     "morgan": "^1.10.0",
-    "mssql": "^8.1.0",
+    "mssql": "^8.1.2",
     "multer": "^1.4.1",
     "winston": "^3.3.3",
     "winston-daily-rotate-file": "^4.5.5"
