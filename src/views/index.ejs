@@ -1,65 +1,43 @@
-<div class="banner">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-6 banner-content">
-                <div class="h6 text-alternate text-uppercase">Bem-vindo ao</div>
-                <div class="h1 text-primary">Portal de calouros</div>
-                <div class="body md">
-                    Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia
-                    consequat
-                    duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 banner-image">
-                <img src="/assets/img/hero.jpg" srcset="/assets/img/hero.jpg 1x, /assets/img/hero@2x.jpg 2x"
-                    alt="Portal de calouros">
-            </div>
-        </div>
-    </div>
-    <div class="svg-element">
-        <%- include('./includes/bg.ejs') %>
-    </div>
-</div>
 <section>
-    <div class="container">
-        <div class="box-title">
-            <div class="h2 title">Jornadas</div>
-            <div class="body sm">
-                Consequat duis enim velit mollit amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-            </div>
-        </div>
-        <div class="slider">
-            <button class="control prev" aria-label="Anterior">
-                <em class="fal fa-chevron-left"></em>
-            </button>
-            <div class="grid slider-wrapper">
-                <% for(const item of artigos) { %>
-                    <div class="card slide">
-                        <div class="card-image">
-                            <img loading="lazy" src="/assets/img/<%= item.image %>.jpg"
-                                srcset="/assets/img/<%= item.image %>.jpg 1x, /assets/img/<%= item.image %>@2x.jpg 2x"
-                                alt="<%= item.title %>">
-                        </div>
-                        <div class="card-body">
-                            <div class="h5">
-                                <%= item.title %>
-                            </div>
-                            <div class="body sm">
-                                <%- item.description %>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <a class="btn" href="<%= rootUrl %><%= item.id %>">
-                                <span>Leia mais</span>
-                                <em class="fal fa-chevron-right"></em>
-                            </a>
-                        </div>
-                    </div>
-                    <% } %>
-            </div>
-            <button class="control next" aria-label="Próximo">
-                <em class="fal fa-chevron-right"></em>
-            </button>
-        </div>
-    </div>
+  <h1>Bluecore Template: Node + EJS</h1>
+
+  <p>Template de projeto monolito, com arquitetura simples, utilizando:</p>
+
+  <ul>
+    <li>Node</li>
+    <li>ExpressJS</li>
+    <li>EJS</li>
+    <li>SQL Server</li>
+  </ul>
 </section>
+
+<section id="app">
+  <h2>Usuários</h2>
+  <ul>
+    <li v-for="user in users">{{ user.name }}</li>
+  </ul>
+</section>
+
+<script>
+  var http = axios.create({
+    baseURL: "<%- apiUrl%>",
+    timeout: 10000,
+  });
+
+  var app = new Vue({
+    el: "#app",
+    data: {
+      users: [],
+    },
+    methods: {
+      loadUsers() {
+        http.get("/users").then((response) => {
+          this.users = response.data;
+        });
+      },
+    },
+    mounted() {
+      this.loadUsers();
+    },
+  });
+</script>
