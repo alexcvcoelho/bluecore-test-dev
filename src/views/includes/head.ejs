@@ -1,46 +1,13 @@
 <head>
-  <base href="<%- baseUrl%>" />
+  <base href="<%- rootUrl%>" />
 
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="304workaround" content="2013-10-24 21:17:23" />
 
-  <title>
-    <%- title %>
-  </title>
+  <title><%- title %></title>
 
-    <% if (brand == 'anhanguera') {%>    
-    <meta data-react-helmet="true" name="theme-color" content="#F05A22">
-    <meta name="theme-color" content="#F05A22">
-
-    <% } if (brand == 'pitagoras') { %>    
-    <meta data-react-helmet="true" name="theme-color" content="#F05A22">
-    <meta name="theme-color" content="#F05A22">
-
-    <% } if (brand == 'unime') { %>
-    <meta data-react-helmet="true" name="theme-color" content="#A71C20">
-    <meta name="theme-color" content="#A71C20">
-
-    <% } if (brand == 'unic') { %>    
-    <meta data-react-helmet="true" name="theme-color" content="#00579F">
-    <meta name="theme-color" content="#00579F">
-
-    <% } if (brand == 'uniderp') { %>    
-    <meta data-react-helmet="true" name="theme-color" content="#002561">
-    <meta name="theme-color" content="#002561">
-
-    <% } if (brand == 'unopar') { %>
-    <meta data-react-helmet="true" name="theme-color" content="#003371">
-    <meta name="theme-color" content="#003371">
-    <% } %>
-
-    <link rel="shortcut icon" href="/assets/favicons/favicon-<%-brand%>.ico" type="image/x-icon">
-
-    <link rel="preload" href="/assets/css/all.min.css" as="style" />
-    <link rel="preload" href="/assets/css/gotham.css" as="style" />
-    <link rel="preload" href="/assets/css/main.css" as="style" />
-
-    <link rel="stylesheet" href="/assets/css/all.min.css">
-    <link rel="stylesheet" href="/assets/css/gotham.css">
-    <link rel="stylesheet" href="/assets/css/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>

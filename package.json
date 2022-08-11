@@ -1,7 +1,7 @@
 {
-  "name": "portal-calouros",
+  "name": "bluecore-template-node-ejs",
   "version": "1.0.0",
-  "description": "Portal calouros",
+  "description": "Bluecore Template: Node + EJS",
   "main": "server.js",
   "scripts": {
     "start": "node src/server.js",
@@ -34,7 +34,6 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.2.0",
-    "jsdom": "^20.0.0",
     "nodemon": "^2.0.15"
   }
 }
