@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <%- include('../includes/head.ejs') %>
-  <body style="overflow: hidden">
-    <main><%- body %></main>
-    <%- include('../includes/footer.ejs') %>
+<%- include('../includes/head.ejs') %>
+
+  <body class="<%= brand %>">
+    <%- include('../includes/header.ejs') %>
+      <main class="scrollable">
+        <%- body %>
+          <%- include('../includes/links.ejs') %>
+          <%- include('../includes/footer.ejs') %>
+      </main>
+      <script src="/assets/js/scripts.js"></script>
   </body>
+
 </html>

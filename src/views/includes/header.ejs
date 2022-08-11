@@ -1,0 +1,67 @@
+<header>
+    <button class="icon text-primary" aria-label="Abrir menu" data-menu="#menu">
+        <em class="fal fa-bars"></em>
+    </button>
+    <div class="logo">
+        <a href="<%= rootUrl %>">
+            <img src="/assets/img/brands/<%= brand %>.svg" alt="<%= brandName %>" height="40px">
+        </a>
+        <span class="divider"></span>
+        <div class="name">Portal de <strong>Calouros</strong></div>
+    </div>
+    <button class="central" data-menu="#central">
+        <div>
+            <div>Central de</div>
+            <div><strong>Atendimento</strong></div>
+        </div>
+        <em class="fal fa-user-headset icon"></em>
+    </button>
+    <div class="menu" id="menu" style="visibility: hidden;">
+        <div class="menu-header">
+            <em class="fal fa-bars icon"></em>
+            <span>Menu</span>
+            <button data-dismiss="#menu">
+                <em class="fal fa-close icon"></em>
+            </button>
+        </div>
+        <div class="list">
+            <div class="list-header">Jornadas</div>
+            <a href="#" class="list-item">Prepare-se para sua jornada!</a>
+            <a href="#" class="list-item">Portal do Aluno (PDA)</a>
+            <a href="#" class="list-item">Acessar o AVA</a>
+            <a href="#" class="list-item">Como você será avaliado</a>
+            <a href="#" class="list-item">Ingressantes após início das aulas</a>
+            <a href="#" class="list-item">Rematrícula</a>
+            <div class="list-header">Links Úteis</div>
+            <a href="#" class="list-item">PDA</a>
+            <a href="#" class="list-item">Canal Conecta</a>
+            <a href="#" class="list-item">Amigo Vale Prêmio</a>
+        </div>
+    </div>
+    <div class="menu right" id="central" style="visibility: hidden;">
+        <div class="menu-header">
+            <em class="fal fa-user-headset icon"></em>
+            <span>Canais de atendimento</span>
+            <button data-dismiss="#central">
+                <em class="fal fa-close icon"></em>
+            </button>
+        </div>
+        <div class="menu-body">
+            <div class="body xs text-uppercase"><strong>Atendimento ao aluno</strong></div>
+            <div class="body sm mt-xs">
+                Você pode, sempre que precisar, tirar dúvidas sobre boletos, grade curricular, notas e outras
+                informações no <a href="#">Portal do Aluno</a> ou em um dos nossos canais disponíveis:
+            </div>
+        </div>
+        <div class="menu-body">
+            <a href="#" class="btn btn-default">
+                <em class="fal fa-phone"></em>
+                <span>Central de relacionamento</span>
+            </a>
+            <a href="#" class="btn btn-default">
+                <em class="fab fa-whatsapp"></em>
+                <span>WhatsApp</span>
+            </a>
+        </div>
+    </div>
+</header>

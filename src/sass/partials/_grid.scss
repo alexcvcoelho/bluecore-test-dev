@@ -1,0 +1,70 @@
+$xs-max: 768px !default; // Set xs breakpoint's max width
+$sm-max: 1024px !default; // Set sm breakpoint's max width
+$md-max: 1440px !default; // Set md breakpoint's max width
+$lg-max: 1920px !default; // Set lg breakpoint's max width
+
+$grid__cols: 12;
+$gap: 16;
+
+$xs-start: (0); // Generate xs breakpoint's > 0
+$sm-start: ($xs-max + 1); // Generate sm breakpoint's min width
+$md-start: ($sm-max + 1); // Generate md breakpoint's min width
+$lg-start: ($md-max + 1); // Generate lg breakpoint's min width
+$xl-start: ($lg-max + 1); // Generate xl breakpoint's min width
+
+// Breakpoints
+// Create breakpoint range statements to be used in media queries
+$breakpoint-xs-up: "only screen and (min-width: #{$xs-start})"; // 0 -> xs-max range
+$breakpoint-sm-up: "only screen and (min-width: #{$sm-start})"; // sm-start -> up range
+$breakpoint-md-up: "only screen and (min-width: #{$md-start})"; // md-start -> up range
+$breakpoint-lg-up: "only screen and (min-width: #{$lg-start})"; // lg-start -> up range
+$breakpoint-xl-up: "only screen and (min-width: #{$xl-start})"; // xl-start -> up range    
+
+$grid: ('xs': $breakpoint-xs-up,
+    'sm': $breakpoint-sm-up,
+    'md': $breakpoint-md-up,
+    'lg': $breakpoint-lg-up,
+    'xl': $breakpoint-xl-up);
+
+@mixin create-col-classes($modifier, $grid-cols, $breakpoint) {
+    @media #{$breakpoint} {
+        @for $i from 1 through $grid-cols {
+            .col-#{$modifier}-#{$i} {
+                box-sizing: border-box;
+                flex-basis: 100% / $grid-cols * $i;
+                @if($i < $grid-cols) {
+                    max-width: calc(#{100% / $grid-cols * $i} - 11px);
+                } @else {
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.container {
+    width: 100%;
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 1rem;
+
+    &-fluid {
+        margin: 0;
+        max-width: 100%;
+    }
+}
+
+.row {
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+    flex: 0 1 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: #{$gap}px;
+}
+
+@each $modifier,
+$breakpoint in $grid {
+    @include create-col-classes($modifier, $grid__cols, $breakpoint);
+}

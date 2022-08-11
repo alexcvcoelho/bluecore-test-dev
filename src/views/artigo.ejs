@@ -1,0 +1,99 @@
+<div class="banner">
+    <iframe width="560" height="315" title="" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+        src="https://www.youtube.com/embed/NI0EP38N_7s"></iframe>
+    <div class="svg-element">
+        <%- include('./includes/bg2.ejs') %>
+    </div>
+</div>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8">
+                <div class="d-flex justify-end">
+                    <button class="text-uppercase btn text">
+                        <span>compartilhar</span>
+                        <em class="fal fa-share-nodes"></em>
+                    </button>
+                </div>
+                <div class="h1 text-primary mt-2">
+                    <%= artigo.title %>
+                </div>
+                <div class="mt-1 body sm">
+                    <%- artigo.description %>
+                </div>
+                <div class="d-flex">
+                    <div id="choose" class="tabs active">
+                        <div class="mt-2 h5 text-primary">Escolha a modalidade:</div>
+                        <div>
+                            <% for(const modality of artigo.modalities) { %>
+                                <button class="btn outlined mt-2" data-tab="<%= modality.slug %>">
+                                    <span>
+                                        <%= modality.name %>
+                                    </span>
+                                </button>
+                                <% } %>
+                        </div>
+                    </div>
+                    <div id="tabs" class="tabs" style="visibility: hidden;">
+                        <div class="btn-group">
+                            <% for(const modality of artigo.modalities) { %>
+                                <button class="btn outlined mt-2" data-tab="<%= modality.slug %>">
+                                    <span>
+                                        <%= modality.name %>
+                                    </span>
+                                </button>
+                                <% } %>
+                        </div>
+                        <% for(const modality of artigo.modalities) { %>
+                            <div id="<%= modality.slug %>" class="pt-2 tab">
+                                <div class="h5 text-primary title pt-2">
+                                    <%= modality.name %>
+                                </div>
+                                <div class="pt-2">
+                                    <% for(const topic of modality.topics) { %>
+                                        <div class="h4 mt-1">
+                                            <%- topic.name %>
+                                        </div>
+                                        <div class="mt-1 body sm custom-html mt-1">
+                                            <%- topic.description %>
+                                        </div>
+                                        <% } %>
+                                </div>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+                <div class="menu-content">
+                    <div class="menu-content-header">
+                        <div class="title h5">Mais Jornadas</div>
+                    </div>
+                    <div class="menu-content-body">
+                        <% for(const item of artigos) { %>
+                            <a href="<%= rootUrl %><%= item.id %>"
+                                class="card list sm <%= item.id === artigo.id ? 'active' : '' %>">
+                                <div class="card-image">
+                                    <img loading="lazy" src="/assets/img/<%= item.image %>.jpg"
+                                        srcset="/assets/img/<%= item.image %>.jpg 1x, /assets/img/<%= item.image %>@2x.jpg 2x"
+                                        alt="<%= item.title %>">
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <div class="h5">
+                                            <%= item.title %>
+                                        </div>
+                                        <div class="body sm mt-xs truncate truncate-after lines-2">
+                                            <%- item.description %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
