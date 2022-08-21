@@ -1,7 +1,7 @@
-const UserDb = require('../db/userDb')
+const UserRepository = require('../repository/userRepository')
 
 module.exports = class UserService {
   static async list () {
-    return await UserDb.listMock()
+    return await UserRepository.list()
   }
 }

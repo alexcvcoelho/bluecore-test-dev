@@ -3,9 +3,6 @@ const expressLayouts = require('express-ejs-layouts')
 const path = require('path')
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
-const dotenv = require('dotenv')
-
-dotenv.config()
 
 const logger = require('./util/logger')
 const morgan = require('./middlewares/morgan')
