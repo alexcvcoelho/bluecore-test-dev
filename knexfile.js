@@ -1,13 +1,9 @@
 require('dotenv').config()
 
 module.exports = {
-  client: 'mssql',
+  client: 'sqlite3',
   connection: {
-    server: process.env.DB_HOST,
-    database: process.env.DB_NAME,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    encrypt: process.env.DATABASE_SSL.toLowerCase() === 'true'
+    filename: "./src/database/db/bluecore.sqlite"
   },
   pool: {
     min: 2,
@@ -19,5 +15,6 @@ module.exports = {
   },
   seeds: {
     directory: './src/database/seeds'
-  }
+  },
+  useNullAsDefault: true
 }
