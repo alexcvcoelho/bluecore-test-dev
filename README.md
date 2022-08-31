@@ -3,7 +3,9 @@
 ### Explicação
 Esta é uma aplicação que simula um blog, nela existem duas páginas, a inicial que contêm a lista de posts cadastrados, e a segunda tela é a de detalhes do post aonde é exibido o conteúdo e também os comentários relacionados a aquele post. Mas a aplicação se encontra incompleta, restando ainda realizar a listagem dos comentários dentro da página de detalhes do post, e essa será a sua missão neste projeto.
 Antes de começar tem alguns pontos que podem te ajudar, se atente aos TODOs existentes no código eles indicam exatamente onde devem ser feitas as alterações para que você consiga finalizar sua missão. Uma dica que pode ser muito útil é se basear na entidade Post, a qual já está com toda a sua implementação finalizada.
+
 **EXTRA**: Será considerado um extra, se na página de post, for criado um formulário que realiza a criação de um novo comentário, salvando ele em banco de dados.
+
 ### Sobre a entrega
 - Você tem 48 horas para a realização deste teste após recebê-lo.
 - A entrega deve ser feita através de arquivo `.zip`ou link de um repositório público (GitHub, GitLab, etc.)
